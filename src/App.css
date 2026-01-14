@@ -1,0 +1,72 @@
+.upload-audio-container {
+  padding: 16px;
+}
+
+.upload-audio-content {
+  height: auto;
+}
+
+.upload-audio-content .ant-upload {
+  padding: 0 !important;
+}
+
+.upload-audio-content .ant-upload-drag-container {
+  height: 160px;
+}
+
+.upload-audio-file {
+  text-align: center;
+  padding: 0 16px;
+  cursor: default;
+  position: relative;
+}
+
+.upload-audio-file .upload-audio-icon {
+  margin: 0 auto;
+  width: 64px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(248, 237, 231, 1) 0%, rgba(255, 217, 214, 1) 100%);
+}
+
+.upload-audio-file .upload-audio-info {
+  flex: 1 1;
+  line-height: 22px;
+}
+
+.upload-audio-file .upload-audio-info .upload-audio-name {
+  margin: 10px 0;
+  font-size: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-weight: 400;
+  width: calc(100vw - 60px);
+}
+
+.upload-audio-file .upload-audio-info .upload-audio-status {
+  margin-top: 10px;
+  color: #00A650;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-audio-file .upload-audio-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.upload-audio-file .upload-audio-delete:hover {
+  background: rgba(0, 33, 100, 0.04);
+}
