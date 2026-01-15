@@ -1,14 +1,16 @@
-import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { StrictMode } from 'react';
+import ReactDOM from 'react-dom';
+// import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <StrictMode>
     <App />
-  </StrictMode>
+  </StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
