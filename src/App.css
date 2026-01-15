@@ -1,27 +1,27 @@
-.upload-audio-container {
+.file-upload-container {
   padding: 16px;
 }
 
-.upload-audio-content {
+.file-upload-area {
   height: auto;
 }
 
-.upload-audio-content .ant-upload {
+.file-upload-area .ant-upload {
   padding: 0 !important;
 }
 
-.upload-audio-content .ant-upload-drag-container {
+.file-upload-area .ant-upload-drag-container {
   height: 160px;
 }
 
-.upload-audio-file {
+.uploaded-file-item {
   text-align: center;
   padding: 0 16px;
   cursor: default;
   position: relative;
 }
 
-.upload-audio-file .upload-audio-icon {
+.uploaded-file-item .file-item-icon {
   margin: 0 auto;
   width: 64px;
   height: 48px;
@@ -32,12 +32,12 @@
   background: linear-gradient(90deg, rgba(248, 237, 231, 1) 0%, rgba(255, 217, 214, 1) 100%);
 }
 
-.upload-audio-file .upload-audio-info {
+.uploaded-file-item .file-item-info {
   flex: 1 1;
   line-height: 22px;
 }
 
-.upload-audio-file .upload-audio-info .upload-audio-name {
+.uploaded-file-item .file-item-info .file-item-name {
   margin: 10px 0;
   font-size: 14px;
   overflow: hidden;
@@ -50,7 +50,7 @@
   width: calc(100vw - 60px);
 }
 
-.upload-audio-file .upload-audio-info .upload-audio-status {
+.uploaded-file-item .file-item-info .file-item-status {
   margin-top: 10px;
   color: #00A650;
   display: flex;
@@ -58,7 +58,7 @@
   justify-content: center;
 }
 
-.upload-audio-file .upload-audio-delete {
+.uploaded-file-item .file-item-delete {
   position: absolute;
   right: 0;
   top: 0;
@@ -67,6 +67,6 @@
   cursor: pointer;
 }
 
-.upload-audio-file .upload-audio-delete:hover {
+.uploaded-file-item .file-item-delete:hover {
   background: rgba(0, 33, 100, 0.04);
 }

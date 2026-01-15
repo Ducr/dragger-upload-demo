@@ -1,13 +1,15 @@
 import { useCallback, useState } from "react";
-import { Upload, Radio } from "antd";
+import { Upload, Select, Input } from "antd";
 import { InboxOutlined, DeleteOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import "./App.css";
 
 const { Dragger } = Upload;
+const { Option } = Select;
 
-const UploadAudio = () => {
+const DraggerUpload = () => {
   const [fileList, setFileList] = useState([]);
-  const [formatType, setFormatType] = useState("audio"); // "audio" 或 "all"
+  const [formatType, setFormatType] = useState("audio"); // "audio", "all" 或 "custom"
+  const [customFormats, setCustomFormats] = useState(".pdf,.doc,.docx,.txt");
 
   const handleBeforeUpload = useCallback((file) => {
     console.log("handleBeforeUpload---file", file);
@@ -36,28 +38,53 @@ const UploadAudio = () => {
   }, []);
 
   const getAcceptAttribute = () => {
-    return formatType === "audio" ? ".mp3,.wav,.m4a" : undefined;
+    if (formatType === "audio") {
+      return ".mp3,.wav,.m4a";
+    } else if (formatType === "custom") {
+      return customFormats;
+    }
+    return undefined;
   };
 
   const getFormatDescription = () => {
-    return formatType === "audio" ? "音频格式：mp3,wav,m4a" : "任意类型文件";
+    if (formatType === "audio") {
+      return "音频格式：mp3,wav,m4a";
+    } else if (formatType === "custom") {
+      return `自定义格式：${customFormats}`;
+    }
+    return "不限制格式";
   };
 
   return (
-    <div className="upload-audio-container">
+    <div className="file-upload-container">
       <div className="format-selector" style={{ marginBottom: 16 }}>
-        <Radio.Group
+        <Select
           value={formatType}
-          onChange={(e) => setFormatType(e.target.value)}
-          buttonStyle="solid"
+          onChange={(value) => setFormatType(value)}
+          style={{ width: '100%' }}
         >
-          <Radio.Button value="audio">音频格式（.mp3,.wav,.m4a）</Radio.Button>
-          <Radio.Button value="all">任意类型文件</Radio.Button>
-        </Radio.Group>
+          <Option value="audio">音频格式(.mp3,.wav,.m4a)</Option>
+          <Option value="all">不限制格式</Option>
+          <Option value="custom">自定义格式</Option>
+        </Select>
       </div>
       
+      {formatType === "custom" && (
+        <div style={{ marginBottom: 16 }}>
+          <Input
+            placeholder="请输入文件格式，如：.pdf,.doc,.txt"
+            value={customFormats}
+            onChange={(e) => setCustomFormats(e.target.value)}
+            allowClear
+          />
+          <div style={{ marginTop: 4, fontSize: 12, color: "#666" }}>
+            提示：多个格式用英文逗号分隔，如：.jpg,.png,.gif
+          </div>
+        </div>
+      )}
+      
       <Dragger
-        className="upload-audio-content"
+        className="file-upload-area"
         fileList={fileList}
         beforeUpload={handleBeforeUpload}
         onChange={handleChange}
@@ -69,20 +96,20 @@ const UploadAudio = () => {
         {fileList.length ? (
           <div onClick={(e) => e.stopPropagation()}>
             {fileList.map((file) => (
-              <div className="upload-audio-file" key={file.uid}>
-                <div className="upload-audio-icon">
+              <div className="uploaded-file-item" key={file.uid}>
+                <div className="file-item-icon">
                   <InboxOutlined style={{ fontSize: 32, color: "#1890ff" }} />
                 </div>
-                <div className="upload-audio-info">
-                  <div title={file.name} className="upload-audio-name">
+                <div className="file-item-info">
+                  <div title={file.name} className="file-item-name">
                     {file.name}
                   </div>
-                  <div className="upload-audio-status">
+                  <div className="file-item-status">
                     <CheckCircleOutlined style={{ color: "#00A650", marginRight: 4 }} />
                     已选择
                   </div>
                 </div>
-                <div className="upload-audio-delete" onClick={handleRemove}>
+                <div className="file-item-delete" onClick={handleRemove}>
                   <DeleteOutlined />
                 </div>
               </div>
@@ -103,4 +130,4 @@ const UploadAudio = () => {
   );
 };
 
-export default UploadAudio;
+export default DraggerUpload;
