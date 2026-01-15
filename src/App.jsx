@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { Upload, Select, Input } from "antd";
 import { InboxOutlined, DeleteOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import "./App.css";
+import CalendarPickerWithSelect from "./components/CalendarPickerWithSelect";
 
 const { Dragger } = Upload;
 const { Option } = Select;
@@ -10,6 +11,7 @@ const DraggerUpload = () => {
   const [fileList, setFileList] = useState([]);
   const [formatType, setFormatType] = useState("audio"); // "audio", "all" 或 "custom"
   const [customFormats, setCustomFormats] = useState(".pdf,.doc,.docx,.txt");
+  const [value, setValue] = useState(null);
 
   const handleBeforeUpload = useCallback((file) => {
     console.log("handleBeforeUpload---file", file);
@@ -126,6 +128,14 @@ const DraggerUpload = () => {
           </>
         )}
       </Dragger>
+      <div style={{ marginTop: "16px" }}></div>
+      <CalendarPickerWithSelect
+        value={value}
+        onChange={(value) => {
+          console.log("value====", value);
+          setValue(value);
+        }}
+      />
     </div>
   );
 };

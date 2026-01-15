@@ -6,6 +6,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "antd": "^4.24.12",
+    "antd-mobile": "^5.0.0-rc.27",
     "eslint-visitor-keys": "^4.2.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
