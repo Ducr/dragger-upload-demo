@@ -10,11 +10,14 @@ const UploadAudio = () => {
 
   const handleBeforeUpload = useCallback((file) => {
     console.log("handleBeforeUpload---file", file);
-    // 最大上传500M文件
-    if (file.size / 1024 / 1024 > 500) {
-      message.error("文件大小不能超过 500MB");
-      return Upload.LIST_IGNORE;
-    }
+    console.log("handleBeforeUpload---文件信息", {
+      'name': file.name,
+      'size': file.size,
+      'type': file.type,
+      'uid': file.uid,
+      'lastModified': file.lastModified,
+      'lastModifiedDate': new Date(file.lastModifiedDate).toLocaleString(),
+    });
     // 返回 false 阻止默认上传行为，但文件会被添加到 fileList
     return false;
   }, []);
