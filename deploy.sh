@@ -6,7 +6,7 @@ echo "开始部署Web应用..."
 
 # 配置
 DIST_DIR="./build"
-TARGET_DIR="/home/www/web/dragger-upload-demo"
+TARGET_DIR="/home/www/web/calendar-picker-with-select"
 
 # 构建项目
 echo "执行 yarn build..."

@@ -1,8 +1,8 @@
 {
-  "name": "dragger-upload-demo",
+  "name": "calendar-picker-with-select",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/dragger-upload-demo",
+  "homepage": "/calendar-picker-with-select",
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "antd": "^4.24.12",
